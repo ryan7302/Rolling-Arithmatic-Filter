@@ -1,0 +1,56 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Wed Jan 22 02:18:53 2025
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_drc -file T05_M3_TopLevel_drc_routed.rpt -pb T05_M3_TopLevel_drc_routed.pb -rpx T05_M3_TopLevel_drc_routed.rpx
+| Design       : T05_M3_TopLevel
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 4
++----------+----------+-------------------+------------+
+| Rule     | Severity | Description       | Violations |
++----------+----------+-------------------+------------+
+| PDRC-153 | Warning  | Gated clock check | 4          |
++----------+----------+-------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net DataBuffer/cal_Mean is a gated clock net sourced by a combinational pin DataBuffer/r_Mean_0_reg[7]_i_2/O, cell DataBuffer/r_Mean_0_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net DataBuffer/o_LEDs_OBUF[3] is a gated clock net sourced by a combinational pin DataBuffer/o_LEDs_OBUF[5]_inst_i_1/O, cell DataBuffer/o_LEDs_OBUF[5]_inst_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net DataBuffer/o_LEDs_OBUF[4] is a gated clock net sourced by a combinational pin DataBuffer/o_LEDs_OBUF[6]_inst_i_1/O, cell DataBuffer/o_LEDs_OBUF[6]_inst_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net DataBuffer/r_Range_0__0 is a gated clock net sourced by a combinational pin DataBuffer/r_Range_0_reg[7]_i_2/O, cell DataBuffer/r_Range_0_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+

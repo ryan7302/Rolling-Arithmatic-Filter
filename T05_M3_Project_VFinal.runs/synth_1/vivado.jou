@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Jan 22 02:16:02 2025
+# Process ID: 22480
+# Current directory: C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/synth_1
+# Command line: vivado.exe -log T05_M3_TopLevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source T05_M3_TopLevel.tcl
+# Log file: C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/synth_1/T05_M3_TopLevel.vds
+# Journal file: C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/synth_1\vivado.jou
+# Running On        :MSI
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :13th Gen Intel(R) Core(TM) i7-13620H
+# CPU Frequency     :2918 MHz
+# CPU Physical cores:10
+# CPU Logical cores :16
+# Host memory       :16868 MB
+# Swap memory       :30836 MB
+# Total Virtual     :47705 MB
+# Available Virtual :28644 MB
+#-----------------------------------------------------------
+source T05_M3_TopLevel.tcl -notrace

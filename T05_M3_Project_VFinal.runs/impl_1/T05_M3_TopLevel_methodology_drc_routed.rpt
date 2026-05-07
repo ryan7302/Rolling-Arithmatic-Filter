@@ -1,0 +1,1133 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Wed Jan 22 02:18:54 2025
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_methodology -file T05_M3_TopLevel_methodology_drc_routed.rpt -pb T05_M3_TopLevel_methodology_drc_routed.pb -rpx T05_M3_TopLevel_methodology_drc_routed.rpx
+| Design       : T05_M3_TopLevel
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 218
++-----------+------------------+------------------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                                      | Violations |
++-----------+------------------+------------------------------------------------------------------+------------+
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree               | 1          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks                   | 2          |
+| TIMING-7  | Critical Warning | No common node between related clocks                            | 2          |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin                        | 1          |
+| CKLD-2    | Warning          | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
+| TIMING-16 | Warning          | Large setup violation                                            | 128        |
+| TIMING-18 | Warning          | Missing input or output delay                                    | 18         |
+| TIMING-20 | Warning          | Non-clocked latch                                                | 64         |
+| LATCH-1   | Advisory         | Existing latches in the design                                   | 1          |
++-----------+------------------+------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-4#1 Critical Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock Demo_DCM/inst/clk_in1 is defined downstream of clock C100MHz_pin and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks C100MHz_pin and clk_out1_clk_wiz_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks C100MHz_pin] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_clk_wiz_0 and C100MHz_pin are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks C100MHz_pin]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks C100MHz_pin and clk_out1_clk_wiz_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks C100MHz_pin] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-7#2 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_clk_wiz_0 and C100MHz_pin are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks C100MHz_pin]
+Related violations: <none>
+
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock Demo_DCM/inst/clk_in1 is created on an inappropriate internal pin Demo_DCM/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+CKLD-2#1 Warning
+Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads  
+Clock net i_Clk_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): Demo_DCM/clk_in1, WaveGenerator/i_Clk, i_Clk_IBUF_inst/O
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -10.952 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -10.954 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -11.057 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -11.071 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -11.185 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -11.227 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -11.452 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -11.620 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[7][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -11.704 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -11.733 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -11.839 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -11.867 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -11.874 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -11.889 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -11.899 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -11.934 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[7][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -14.743 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -14.775 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -14.796 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -14.976 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -15.085 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -15.090 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -15.145 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -15.234 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -15.241 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -15.258 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -15.275 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -15.279 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -15.280 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -15.291 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[6][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#31 Warning
+Large setup violation  
+There is a large setup violation of -15.577 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#32 Warning
+Large setup violation  
+There is a large setup violation of -15.592 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[6][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#33 Warning
+Large setup violation  
+There is a large setup violation of -18.529 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#34 Warning
+Large setup violation  
+There is a large setup violation of -18.533 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#35 Warning
+Large setup violation  
+There is a large setup violation of -18.663 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#36 Warning
+Large setup violation  
+There is a large setup violation of -18.708 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -18.850 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -18.851 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#39 Warning
+Large setup violation  
+There is a large setup violation of -18.864 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#40 Warning
+Large setup violation  
+There is a large setup violation of -18.870 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#41 Warning
+Large setup violation  
+There is a large setup violation of -18.929 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#42 Warning
+Large setup violation  
+There is a large setup violation of -18.968 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#43 Warning
+Large setup violation  
+There is a large setup violation of -18.987 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#44 Warning
+Large setup violation  
+There is a large setup violation of -18.994 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#45 Warning
+Large setup violation  
+There is a large setup violation of -19.017 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#46 Warning
+Large setup violation  
+There is a large setup violation of -19.024 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[5][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#47 Warning
+Large setup violation  
+There is a large setup violation of -19.025 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#48 Warning
+Large setup violation  
+There is a large setup violation of -19.170 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[5][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#49 Warning
+Large setup violation  
+There is a large setup violation of -21.773 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#50 Warning
+Large setup violation  
+There is a large setup violation of -22.027 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#51 Warning
+Large setup violation  
+There is a large setup violation of -22.042 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#52 Warning
+Large setup violation  
+There is a large setup violation of -22.043 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#53 Warning
+Large setup violation  
+There is a large setup violation of -22.044 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#54 Warning
+Large setup violation  
+There is a large setup violation of -22.051 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#55 Warning
+Large setup violation  
+There is a large setup violation of -22.076 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#56 Warning
+Large setup violation  
+There is a large setup violation of -22.101 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#57 Warning
+Large setup violation  
+There is a large setup violation of -22.218 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#58 Warning
+Large setup violation  
+There is a large setup violation of -22.303 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[4][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#59 Warning
+Large setup violation  
+There is a large setup violation of -22.416 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#60 Warning
+Large setup violation  
+There is a large setup violation of -22.520 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#61 Warning
+Large setup violation  
+There is a large setup violation of -22.554 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#62 Warning
+Large setup violation  
+There is a large setup violation of -22.557 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#63 Warning
+Large setup violation  
+There is a large setup violation of -22.672 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#64 Warning
+Large setup violation  
+There is a large setup violation of -22.818 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[4][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#65 Warning
+Large setup violation  
+There is a large setup violation of -24.890 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#66 Warning
+Large setup violation  
+There is a large setup violation of -25.105 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#67 Warning
+Large setup violation  
+There is a large setup violation of -25.145 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#68 Warning
+Large setup violation  
+There is a large setup violation of -25.187 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#69 Warning
+Large setup violation  
+There is a large setup violation of -25.212 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#70 Warning
+Large setup violation  
+There is a large setup violation of -25.230 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#71 Warning
+Large setup violation  
+There is a large setup violation of -25.243 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#72 Warning
+Large setup violation  
+There is a large setup violation of -25.253 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#73 Warning
+Large setup violation  
+There is a large setup violation of -25.268 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[3][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#74 Warning
+Large setup violation  
+There is a large setup violation of -25.398 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#75 Warning
+Large setup violation  
+There is a large setup violation of -25.414 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#76 Warning
+Large setup violation  
+There is a large setup violation of -25.526 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#77 Warning
+Large setup violation  
+There is a large setup violation of -25.530 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#78 Warning
+Large setup violation  
+There is a large setup violation of -25.776 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#79 Warning
+Large setup violation  
+There is a large setup violation of -25.781 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#80 Warning
+Large setup violation  
+There is a large setup violation of -25.866 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[3][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#81 Warning
+Large setup violation  
+There is a large setup violation of -27.787 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#82 Warning
+Large setup violation  
+There is a large setup violation of -27.860 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#83 Warning
+Large setup violation  
+There is a large setup violation of -27.865 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#84 Warning
+Large setup violation  
+There is a large setup violation of -27.907 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#85 Warning
+Large setup violation  
+There is a large setup violation of -27.918 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#86 Warning
+Large setup violation  
+There is a large setup violation of -27.999 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#87 Warning
+Large setup violation  
+There is a large setup violation of -28.071 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#88 Warning
+Large setup violation  
+There is a large setup violation of -28.085 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[2][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#89 Warning
+Large setup violation  
+There is a large setup violation of -28.159 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#90 Warning
+Large setup violation  
+There is a large setup violation of -28.164 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#91 Warning
+Large setup violation  
+There is a large setup violation of -28.164 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#92 Warning
+Large setup violation  
+There is a large setup violation of -28.296 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#93 Warning
+Large setup violation  
+There is a large setup violation of -28.297 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#94 Warning
+Large setup violation  
+There is a large setup violation of -28.339 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#95 Warning
+Large setup violation  
+There is a large setup violation of -28.343 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#96 Warning
+Large setup violation  
+There is a large setup violation of -28.440 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[2][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#97 Warning
+Large setup violation  
+There is a large setup violation of -30.155 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#98 Warning
+Large setup violation  
+There is a large setup violation of -30.189 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#99 Warning
+Large setup violation  
+There is a large setup violation of -30.193 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#100 Warning
+Large setup violation  
+There is a large setup violation of -30.198 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#101 Warning
+Large setup violation  
+There is a large setup violation of -30.204 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#102 Warning
+Large setup violation  
+There is a large setup violation of -30.207 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#103 Warning
+Large setup violation  
+There is a large setup violation of -30.212 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#104 Warning
+Large setup violation  
+There is a large setup violation of -30.235 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#105 Warning
+Large setup violation  
+There is a large setup violation of -30.240 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#106 Warning
+Large setup violation  
+There is a large setup violation of -30.303 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#107 Warning
+Large setup violation  
+There is a large setup violation of -30.305 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#108 Warning
+Large setup violation  
+There is a large setup violation of -30.330 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#109 Warning
+Large setup violation  
+There is a large setup violation of -30.334 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#110 Warning
+Large setup violation  
+There is a large setup violation of -30.380 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[1][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#111 Warning
+Large setup violation  
+There is a large setup violation of -30.441 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#112 Warning
+Large setup violation  
+There is a large setup violation of -30.448 ns between DataBuffer/r_Buffer_0_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_0_reg[0][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#113 Warning
+Large setup violation  
+There is a large setup violation of -30.522 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#114 Warning
+Large setup violation  
+There is a large setup violation of -30.526 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#115 Warning
+Large setup violation  
+There is a large setup violation of -30.546 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#116 Warning
+Large setup violation  
+There is a large setup violation of -30.551 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#117 Warning
+Large setup violation  
+There is a large setup violation of -30.553 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#118 Warning
+Large setup violation  
+There is a large setup violation of -30.555 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#119 Warning
+Large setup violation  
+There is a large setup violation of -30.558 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#120 Warning
+Large setup violation  
+There is a large setup violation of -30.648 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#121 Warning
+Large setup violation  
+There is a large setup violation of -30.675 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#122 Warning
+Large setup violation  
+There is a large setup violation of -30.678 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#123 Warning
+Large setup violation  
+There is a large setup violation of -30.678 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#124 Warning
+Large setup violation  
+There is a large setup violation of -30.679 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#125 Warning
+Large setup violation  
+There is a large setup violation of -30.683 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#126 Warning
+Large setup violation  
+There is a large setup violation of -30.683 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#127 Warning
+Large setup violation  
+There is a large setup violation of -30.686 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[1][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#128 Warning
+Large setup violation  
+There is a large setup violation of -30.691 ns between DataBuffer/r_Buffer_1_reg[0][1]_replica_2/C (clocked by clk_out1_clk_wiz_0) and DataBuffer/r_SortedBuffer_1_reg[0][3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on i_BufferSizeSwitch[0] relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on i_BufferSizeSwitch[1] relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on i_Fast relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on i_Reset relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on i_Start relative to the rising and/or falling clock edge(s) of C100MHz_pin.
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on i_WaveSwitch relative to the rising and/or falling clock edge(s) of C100MHz_pin.
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on i_XADCSwitch relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentAnodes[0] relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentAnodes[1] relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentAnodes[2] relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentAnodes[3] relative to the rising and/or falling clock edge(s) of Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[0] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[1] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[2] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[3] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[4] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[5] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on o_SegmentCathodes[6] relative to the rising and/or falling clock edge(s) of C100MHz_pin, Demo_DCM/inst/clk_in1.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_0_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Mean_0_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mean_1_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Mean_1_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_0_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Median_0_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#25 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#26 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#27 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#28 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#29 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#30 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#31 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#32 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Median_1_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Median_1_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#33 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#34 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#35 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#36 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#37 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#38 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#39 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#40 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_0_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Mode_0_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#41 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#42 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#43 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#44 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#45 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#46 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#47 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#48 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Mode_1_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Mode_1_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#49 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#50 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#51 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#52 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#53 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#54 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#55 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#56 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_0_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Range_0_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#57 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[0] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#58 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[1] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#59 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[2] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#60 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[3] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#61 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[4] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#62 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[5] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#63 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[6] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#64 Warning
+Non-clocked latch  
+The latch DataBuffer/r_Range_1_reg[7] cannot be properly analyzed as its control pin DataBuffer/r_Range_1_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+LATCH-1#1 Advisory
+Existing latches in the design  
+There are 64 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+Related violations: <none>
+
+

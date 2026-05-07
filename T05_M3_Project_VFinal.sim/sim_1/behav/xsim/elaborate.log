@@ -1,0 +1,39 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot T05_M3_TopLevel_TB_behav xil_defaultlib.T05_M3_TopLevel_TB xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.glbl
+Compiling architecture ibuf_v of entity unisim.IBUF [\IBUF(1,9)(1,1)(1,4)(1,7)\]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture mmcme2_adv_v of entity unisim.MMCME2_ADV [\MMCME2_ADV(clkfbout_mult_f=10.0...]
+Compiling architecture structure of entity xil_defaultlib.clk_wiz_0_clk_wiz [clk_wiz_0_clk_wiz_default]
+Compiling architecture structure of entity xil_defaultlib.clk_wiz_0 [clk_wiz_0_default]
+Compiling architecture xadc_v of entity unisim.XADC [\XADC(init_41="0010000110101111"...]
+Compiling architecture amd of entity xil_defaultlib.xadc_wiz_0 [xadc_wiz_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_ClkEn1Hz [t05_m3_clken1hz_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_ClkEn250Hz [t05_m3_clken250hz_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_WaveGenerator [t05_m3_wavegenerator_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_XADC [t05_m3_xadc_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_BufferFilters [t05_m3_bufferfilters_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_BinaryCounter [t05_m3_binarycounter_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_DisplayDriver [t05_m3_displaydriver_default]
+Compiling architecture behavioral of entity xil_defaultlib.T05_M3_TopLevel [t05_m3_toplevel_default]
+Compiling architecture behavioral of entity xil_defaultlib.t05_m3_toplevel_tb
+Built simulation snapshot T05_M3_TopLevel_TB_behav

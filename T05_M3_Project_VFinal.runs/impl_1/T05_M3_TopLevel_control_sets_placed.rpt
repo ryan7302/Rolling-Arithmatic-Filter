@@ -1,0 +1,102 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Wed Jan 22 02:17:47 2025
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file T05_M3_TopLevel_control_sets_placed.rpt
+| Design       : T05_M3_TopLevel
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    24 |
+|    Minimum number of control sets                        |    24 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    39 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    24 |
+| >= 0 to < 4        |     4 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     3 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    13 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               8 |            5 |
+| No           | No                    | Yes                    |             181 |           87 |
+| No           | Yes                   | No                     |              72 |           32 |
+| Yes          | No                    | No                     |               8 |            3 |
+| Yes          | No                    | Yes                    |             132 |           60 |
+| Yes          | Yes                   | No                     |              16 |            5 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------+-----------------------------------------+---------------------------------------+------------------+----------------+--------------+
+|        Clock Signal        |              Enable Signal              |            Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------+-----------------------------------------+---------------------------------------+------------------+----------------+--------------+
+|  i_Clk_IBUF                | WaveGenerator/r_start_sync1_i_1_n_0     |                                       |                1 |              1 |         1.00 |
+|  i_Clk_IBUF                | WaveGenerator/r_waveSelect_perv_i_1_n_0 |                                       |                1 |              1 |         1.00 |
+| ~Demo_DCM/inst/clk_out1    |                                         | i_Reset_IBUF                          |                2 |              2 |         1.00 |
+|  i_Clk_IBUF                |                                         |                                       |                2 |              3 |         1.50 |
+|  i_Clk_IBUF                | WaveGenerator/r_counter0                | i_Reset_IBUF                          |                1 |              4 |         4.00 |
+|  Demo_DCM/inst/clk_out1    |                                         |                                       |                3 |              5 |         1.67 |
+|  i_Clk_IBUF                |                                         | i_Reset_IBUF                          |                3 |              5 |         1.67 |
+|  i_Clk_IBUF                | i_WaveSwitch_IBUF                       |                                       |                1 |              6 |         6.00 |
+|  Demo_DCM/inst/clk_out1    | XADC_Process/o_XADCData_0[7]_i_1_n_0    | i_Reset_IBUF                          |                2 |              8 |         4.00 |
+|  Demo_DCM/inst/clk_out1    | XADC_Process/o_XADCData_1[7]_i_1_n_0    | i_Reset_IBUF                          |                3 |              8 |         2.67 |
+|  i_Clk_IBUF                |                                         | WaveGenerator/r_flushActivate_reg_n_0 |                4 |              8 |         2.00 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[0]_31             | i_Reset_IBUF                          |                6 |             16 |         2.67 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[1]_30             | i_Reset_IBUF                          |                5 |             16 |         3.20 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[2]_29             | i_Reset_IBUF                          |                9 |             16 |         1.78 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[6]_25             | i_Reset_IBUF                          |                9 |             16 |         1.78 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[3]_28             | i_Reset_IBUF                          |                7 |             16 |         2.29 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[5]_26             | i_Reset_IBUF                          |                7 |             16 |         2.29 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[7]_24             | i_Reset_IBUF                          |                6 |             16 |         2.67 |
+|  Demo_DCM/inst/clk_out1    | DataBuffer/r_Buffer_0[4]_27             | i_Reset_IBUF                          |               10 |             16 |         1.60 |
+|  DataBuffer/r_Range_0__0   |                                         | i_Reset_IBUF                          |                4 |             16 |         4.00 |
+|  DataBuffer/o_LEDs_OBUF[4] |                                         | i_Reset_IBUF                          |                7 |             16 |         2.29 |
+|  DataBuffer/o_LEDs_OBUF[3] |                                         | i_Reset_IBUF                          |                6 |             16 |         2.67 |
+|  DataBuffer/cal_Mean       |                                         | i_Reset_IBUF                          |               11 |             16 |         1.45 |
+|  Demo_DCM/inst/clk_out1    |                                         | i_Reset_IBUF                          |               82 |            174 |         2.12 |
++----------------------------+-----------------------------------------+---------------------------------------+------------------+----------------+--------------+
+
+

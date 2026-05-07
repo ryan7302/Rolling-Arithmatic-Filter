@@ -1,0 +1,1837 @@
+
+*** Running vivado
+    with args -log T05_M3_TopLevel.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source T05_M3_TopLevel.tcl -notrace
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Wed Jan 22 02:17:04 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source T05_M3_TopLevel.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 507.371 ; gain = 201.328
+Command: link_design -top T05_M3_TopLevel -part xc7a35tcpg236-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Device 21-9227] Part: xc7a35tcpg236-1 does not have CEAM library.
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'Demo_DCM'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.dcp' for cell 'XADC_Block'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 941.789 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 153 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'T05_M3_TopLevel' is not ideal for floorplanning, since the cellview 'T05_M3_BufferFilters' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-35] Removing redundant IBUF, Demo_DCM/inst/clkin1_ibufg, from the path connected to top-level port: i_Clk 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'Demo_DCM/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+Parsing XDC File [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'Demo_DCM/inst'
+Finished Parsing XDC File [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'Demo_DCM/inst'
+Parsing XDC File [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'Demo_DCM/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
+Finished Parsing XDC File [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'Demo_DCM/inst'
+Parsing XDC File [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc] for cell 'XADC_Block/U0'
+Finished Parsing XDC File [c:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc] for cell 'XADC_Block/U0'
+Parsing XDC File [C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.srcs/constrs_1/new/T05_M3_Project.xdc]
+Finished Parsing XDC File [C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.srcs/constrs_1/new/T05_M3_Project.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1638.449 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+12 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1638.449 ; gain = 1116.355
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.549 . Memory (MB): peak = 1638.449 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1658.629 ; gain = 20.180
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 1 Initialization | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1c3afa9d8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3 Retarget
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-1566] Pulled 8 inverters resulting in an inversion of 53 pins
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 11943b9c6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Retarget | Checksum: 11943b9c6
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 8 cells
+INFO: [Opt 31-1021] In phase Retarget, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 1ba2110ac
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.096 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Constant propagation | Checksum: 1ba2110ac
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 1407dcc09
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.110 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Sweep | Checksum: 1407dcc09
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 1407dcc09
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.139 . Memory (MB): peak = 2027.398 ; gain = 0.000
+BUFG optimization | Checksum: 1407dcc09
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 1407dcc09
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.142 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Shift Register Optimization | Checksum: 1407dcc09
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 1407dcc09
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Post Processing Netlist | Checksum: 1407dcc09
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.180 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.183 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 9 Finalization | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.184 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               8  |                                              1  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.185 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 268001e43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+32 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+INFO: [Vivado 12-24828] Executing command : report_drc -file T05_M3_TopLevel_drc_opted.rpt -pb T05_M3_TopLevel_drc_opted.pb -rpx T05_M3_TopLevel_drc_opted.rpx
+Command: report_drc -file T05_M3_TopLevel_drc_opted.rpt -pb T05_M3_TopLevel_drc_opted.pb -rpx T05_M3_TopLevel_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.049 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.064 . Memory (MB): peak = 2027.398 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_opt.dcp' has been generated.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 16ef30341
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 12a5af78b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.164 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 184142339
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.457 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 184142339
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.461 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 184142339
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.464 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 1bb977ce9
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.581 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 19c0d4051
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.659 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 19c0d4051
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.664 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 15ee64419
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 117 LUTNM shape to break, 93 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 9, two critical 108, total 117, new lutff created 9
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 148 nets or LUTs. Breaked 117 LUTs, combined 31 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1401] No candidate cells found for Shift Register optimization.
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |          117  |             31  |                   148  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |          117  |             31  |                   148  |           0  |           9  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 2a7a63cdd
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 2.4 Global Placement Core | Checksum: 273d1c740
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 273d1c740
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 2d57c0931
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 309cdab43
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 373e60af4
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 3756c3a6b
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 3653b730d
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 1f77dba05
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 25d5424a5
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 25eca562e
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 2c160ae17
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 2c160ae17
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 224c02608
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-26.964 | TNS=-2478.318 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1b97208f4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 2027.398 ; gain = 0.000
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 30071a1dd
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 224c02608
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-24.350. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 2ae409db9
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 2ae409db9
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 2ae409db9
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                1x1|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 2ae409db9
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 4.3 Placer Reporting | Checksum: 2ae409db9
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.398 ; gain = 0.000
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 2c327a4f8
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+Ending Placer Task | Checksum: 1d5922b0e
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2027.398 ; gain = 0.000
+75 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2027.398 ; gain = 0.000
+INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
+Running report generation with 2 threads.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file T05_M3_TopLevel_utilization_placed.rpt -pb T05_M3_TopLevel_utilization_placed.pb
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file T05_M3_TopLevel_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2028.703 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_io -file T05_M3_TopLevel_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 2028.707 ; gain = 1.309
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2046.426 ; gain = 0.004
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.139 . Memory (MB): peak = 2048.422 ; gain = 1.996
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2048.422 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2048.422 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2048.422 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2048.422 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.168 . Memory (MB): peak = 2048.422 ; gain = 1.996
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_placed.dcp' has been generated.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.196 . Memory (MB): peak = 2061.055 ; gain = 12.633
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 1.00s |  WALL: 0.22s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2061.055 ; gain = 0.000
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.281 | TNS=-2255.683 |
+Phase 1 Physical Synthesis Initialization | Checksum: 205e74356
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.097 . Memory (MB): peak = 2061.086 ; gain = 0.031
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.281 | TNS=-2255.683 |
+
+Phase 2 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Phase 2 DSP Register Optimization | Checksum: 205e74356
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.101 . Memory (MB): peak = 2061.086 ; gain = 0.031
+
+Phase 3 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.281 | TNS=-2255.683 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0]_8[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net Demo_DCM/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_13_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_13_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][1]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.203 | TNS=-2254.515 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_11_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][7]_i_11
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_11_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.187 | TNS=-2254.259 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_3_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_3
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.181 | TNS=-2254.163 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_11_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_11_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][5]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.137 | TNS=-2253.347 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0]_16[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_12_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_12_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][1]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.134 | TNS=-2253.331 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_3_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][0]_i_3
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.129 | TNS=-2253.139 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_10_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_10_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.122 | TNS=-2252.867 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_12_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_12_comp_1.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.111 | TNS=-2251.619 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_12_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_12_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][3]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.091 | TNS=-2251.307 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 26 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_16_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.052 | TNS=-2250.683 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 19 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.044 | TNS=-2250.491 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_29_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][6]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[2][6]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[2][6]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.042 | TNS=-2250.339 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_9_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_9_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.034 | TNS=-2250.187 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 21 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][3]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.032 | TNS=-2250.067 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][3]_i_3_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][3]_i_3
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][3]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.029 | TNS=-2250.003 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][0]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[2][0]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[2][0]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.028 | TNS=-2249.859 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_10_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_10_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][5]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-24.021 | TNS=-2249.235 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_31_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[2][7]_i_31_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.999 | TNS=-2248.746 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_30_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][4]_i_2_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][4]_i_2
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][4]_i_2_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.987 | TNS=-2248.363 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_11_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_11_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][3]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.983 | TNS=-2247.874 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][2]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[2][2]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[2][2]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.968 | TNS=-2247.539 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][4]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[2][4]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[2][4]_i_2_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.960 | TNS=-2247.371 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][2]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][7]_i_8_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/arr0[0]1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_30_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_30_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_30_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][1]_i_5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.953 | TNS=-2246.522 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_10_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_10_comp_1.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][4]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.924 | TNS=-2245.547 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_3_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][1]_i_3
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.908 | TNS=-2245.034 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_4_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_4_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][1]_i_4_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.898 | TNS=-2244.634 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][0]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.892 | TNS=-2244.226 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_9_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_9_comp_1.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.891 | TNS=-2243.794 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 26 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_34_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.878 | TNS=-2243.483 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_16_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.877 | TNS=-2243.378 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_27_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_27_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_27_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.873 | TNS=-2243.282 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][2]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.867 | TNS=-2242.818 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_27_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_27_comp_1.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.866 | TNS=-2242.811 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_30_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][7]_i_30_comp_1.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.864 | TNS=-2242.474 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_11_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_11_comp_1.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][2]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.852 | TNS=-2242.059 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_4_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[3][0]_i_4
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.850 | TNS=-2241.995 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 23 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_21_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.850 | TNS=-2241.995 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][0]_i_2_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.849 | TNS=-2241.954 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 20 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_15_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.847 | TNS=-2241.587 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_51_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_8_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][2]_i_8_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.838 | TNS=-2240.635 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 26 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_13_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.837 | TNS=-2240.618 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_12_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_12_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.818 | TNS=-2240.394 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 26 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_15_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.816 | TNS=-2239.962 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][4]_i_2_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.791 | TNS=-2238.738 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_16_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][7]_i_16_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][1]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.787 | TNS=-2237.962 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_68_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][7]_i_68
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_68_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.779 | TNS=-2237.706 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][2]_i_2_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.777 | TNS=-2237.594 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_50_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][7]_i_50
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_50_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.775 | TNS=-2237.530 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][1]_i_7
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.773 | TNS=-2237.466 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.763 | TNS=-2237.106 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][4]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.755 | TNS=-2236.690 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_50_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.753 | TNS=-2236.626 |
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_7_n_0. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.741 | TNS=-2236.210 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][0]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][0]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][0]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.740 | TNS=-2235.858 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_17_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_17_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.736 | TNS=-2235.514 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_5_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_20_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_20
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_20_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.723 | TNS=-2234.683 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 18 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_22_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.719 | TNS=-2234.555 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_21_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][5]_i_2_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.710 | TNS=-2232.074 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_2_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.705 | TNS=-2231.674 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_23_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_23
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.680 | TNS=-2230.874 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][5]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][5]_i_4_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][5]_i_4_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.666 | TNS=-2230.314 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_4_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][3]_i_4_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.653 | TNS=-2229.794 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_6_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][7]_i_6_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.639 | TNS=-2227.986 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 21 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.638 | TNS=-2227.826 |
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_4_n_0. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_4_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.635 | TNS=-2227.754 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 4 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_4_n_0_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.628 | TNS=-2227.442 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_49_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][7]_i_49
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_49_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.622 | TNS=-2227.026 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_20_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][7]_i_20
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_20_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.620 | TNS=-2226.962 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_22_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][2]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_19_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_48_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_11_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][6]_i_11
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_11_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.615 | TNS=-2226.738 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.613 | TNS=-2226.162 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_51_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][0]_i_8
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.608 | TNS=-2226.002 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][7]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.601 | TNS=-2225.826 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_8_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_39_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][1]_i_5_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_8_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.599 | TNS=-2225.922 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 21 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.597 | TNS=-2225.474 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_27_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_27_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_27_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_48_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.588 | TNS=-2225.186 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.585 | TNS=-2224.610 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_3_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][3]_i_3
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.584 | TNS=-2224.578 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][5]_i_5
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.580 | TNS=-2224.450 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_50_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 4 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.578 | TNS=-2224.386 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 13 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.570 | TNS=-2223.746 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_8_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][0]_i_8_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.558 | TNS=-2223.202 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][3]_i_3_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.553 | TNS=-2222.410 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][0]_i_5
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_5_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.547 | TNS=-2222.218 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_26_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_26_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_26_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_47_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.532 | TNS=-2221.578 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_8_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[3][6]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][3]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][3]_i_7
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[4][3]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.527 | TNS=-2220.234 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_15_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_15_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.504 | TNS=-2219.130 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_22_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][6]_i_9
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_9_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.501 | TNS=-2218.666 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][5]_i_6
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.499 | TNS=-2218.346 |
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_16_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_16_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_3_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.493 | TNS=-2217.994 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_24_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_24_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_45_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.491 | TNS=-2217.482 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][1]_i_6
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.489 | TNS=-2217.418 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_9_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][7]_i_9_comp.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_13_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.488 | TNS=-2217.386 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_67_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_5_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_22_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_22
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_22_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.481 | TNS=-2217.162 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_23_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][6]_i_23
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_23_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.477 | TNS=-2216.779 |
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][0]_i_7
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.477 | TNS=-2216.394 |
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_38_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][7]_i_38
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_38_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.465 | TNS=-2215.690 |
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 8 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_1[4][3]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-23.461 | TNS=-2214.266 |
+INFO: [Common 17-14] Message 'Physopt 32-619' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 19 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_20_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_22_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][3]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][3]_i_7
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[0][3]_i_7_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[4][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-735] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_17_n_0. Optimization improves timing on the net.
+INFO: [Common 17-14] Message 'Physopt 32-735' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_23_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_23_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_13_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_28_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_52_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_52
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_40_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][7]_i_40
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 19 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 13 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_49_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_18_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][7]_i_18
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_16_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_44_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_56_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][7]_i_56
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][1]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][1]_i_7
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_50_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_10_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][5]_i_10
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_40_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][1]_i_5
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][2]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][2]_i_5
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_26_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_26_comp_1.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_19_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][7]_i_19
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_58_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][2]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][2]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_39_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[3][2]_i_7
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][7]_i_8
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][3]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][3]_i_7
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][2]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][2]_i_5
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_22_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_22_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_38_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_7_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[3][4]_i_7
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_10_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][1]_i_10
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_7_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 20 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][3]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_13_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_28_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_52_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_52
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_85_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_85
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_59_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][0]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_20_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][7]_i_20_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_9_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][1]_i_9_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_19_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_19_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_40_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_76_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_1[0][2]_i_12_n_0. Replicated 1 times.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_13_n_0. Replicated 1 times.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 15 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][1]_i_3_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_49_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_49
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_77_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_12_n_0. Replicated 1 times.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_25_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_6_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][0]_i_6_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][5]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][5]_i_7_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][5]_i_7_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 23 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 23 pins.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_50_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_50
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 26 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_104_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_104
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][2]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[3][2]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[3][2]_i_5_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][3]_i_2_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[3][6]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_15_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[3][6]_i_15
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][4]_i_5_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_51_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_84_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_84
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_50_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_10_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][5]_i_10
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_13_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][1]_i_13
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_7_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][3]_i_7_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_15_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_60_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_60
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_10_n_0. Replicated 1 times.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_10_n_0_repN.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][5]_i_10_replica
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_84_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_9_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_38_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_72_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_72
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_104_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_104_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][6]_i_104_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_56_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_15_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[2][7]_i_15
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_7_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[3][6]_i_7_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_8_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][1]_i_8_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_15_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[2][7]_i_15_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_32_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_32
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_34_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_34_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_5_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[6][6]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_18_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][1]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][1]_i_8
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_25_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_8_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[4][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_24_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][7]_i_24
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_65_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_65_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][6]_i_65_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_105_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_105
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][1]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[6][0]_i_4_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[6][0]_i_4
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_6_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][2]_i_6_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_22_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_8_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_8_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][0]_i_5_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[6][0]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[6][0]_i_6
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_71_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_71
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][0]_i_9
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_6_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[3][6]_i_6_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_70_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_70
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 15 pins.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_50_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_50_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_17_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_45_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_60_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][1]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_39_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_39_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_39_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][3]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][3]_i_8
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_3_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[4][1]_i_3
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_18_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[6][6]_i_18_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_39_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_39_comp_1.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][1]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[4][1]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[4][1]_i_5_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][0]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[6][0]_i_4_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[6][0]_i_4_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 9 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_58_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[3][4]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][5]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][5]_i_2_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][5]_i_2_comp.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 15 pins.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_39_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_39_comp.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_34_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_34_comp_1.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_32_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_32_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_23_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][7]_i_23
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_62_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_98_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_98
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_35_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][0]_i_8
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[6][4]_i_4_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[6][4]_i_4
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_36_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_36_comp.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_38_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_38_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[4][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_25_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_6_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][1]_i_6_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][3]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[4][3]_i_8_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[4][3]_i_8_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][1]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][1]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_61_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][1]_i_11_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][1]_i_11
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_37_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_37_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_33_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][4]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][4]_i_8
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][2]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[6][2]_i_4_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[6][2]_i_4_comp.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_37_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_37_comp_1.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_33_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_33_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][5]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][5]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_74_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_102_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_102
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_59_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_9_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[3][2]_i_9
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_63_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_99_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][6]_i_99
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_33_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[0][6]_i_33_comp_1.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][0]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[6][0]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[6][0]_i_5_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_19_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_19_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_40_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_75_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][6]_i_75
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_21_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][7]_i_21
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[6][0]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[6][0]_i_6
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_11_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][0]_i_11
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_105_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_105_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[0][6]_i_105_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_60_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][3]_i_11_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][3]_i_11
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[4][5]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[4][5]_i_8
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_11_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_1[4][7]_i_11_comp.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[2][5]_i_8
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[6][2]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[6][2]_i_6
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 11 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[6][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_29_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_57_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_89_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][1]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_41_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/arr1[1]1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_88_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_105_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[6][7]_i_40_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[6][7]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_85_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][3]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_Buffer_1_reg_n_0_[0][1]. Replicated 2 times.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[6][4]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[6][4]_i_6
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 23 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 17 pins.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_Buffer_1_reg_n_0_[0][1]_repN. Replicated 1 times.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_5_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][1]_i_5_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_Buffer_1_reg_n_0_[0][1]_repN_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0]_16[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net Demo_DCM/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_10_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][7]_i_10_comp_1
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_1[0][7]_i_5
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0]_8[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][2]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][7]_i_8_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_29_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][2]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_5_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_21_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][4]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][4]_i_5
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[4][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_39_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][3]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_28_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_45_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_59_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][2]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_19_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_40_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 20 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_58_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][6]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 19 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_76_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[0][2]_i_12_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[0][2]_i_12
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 20 pins.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_15_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[6][6]_i_15
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 18 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_18_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_8_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[4][1]_i_8
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 12 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[4][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_27_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[6][7]_i_27
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[6][4]_i_6_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[6][4]_i_6
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net DataBuffer/r_SortedBuffer_0[6][4]_i_5_n_0.  Re-placed instance DataBuffer/r_SortedBuffer_0[6][4]_i_5
+INFO: [Common 17-14] Message 'Physopt 32-663' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][6]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 34 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_29_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 34 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_27_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][2]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][7]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 34 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_77_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][1]_i_4_n_0_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][7]_i_7_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_29_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_19_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_51_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][0]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][5]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[3][6]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[3][6]_i_22_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[4][7]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_16_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_44_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_58_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_19_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_40_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_76_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_15_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_61_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][0]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[6][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][6]_i_34_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][3]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][6]_i_29_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][6]_i_89_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][1]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_41_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/arr1[1]1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_88_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_105_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[6][7]_i_40_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[6][7]_i_85_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][3]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_Buffer_1_reg_n_0_[0][1]_repN_2. Optimizations did not improve timing on the net.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2782.473 ; gain = 0.000
+Phase 3 Critical Path Optimization | Checksum: c5a85c4c
+
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:36 . Memory (MB): peak = 2782.473 ; gain = 721.418
+
+Phase 4 Critical Path Optimization
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0]_16[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net Demo_DCM/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[0][7]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0]_8[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_4_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_3_n_0. Replicated 2 times.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_7_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_5_n_0. Replicated 1 times.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_30_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][4]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[4][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][3]_i_6_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][3]_i_6_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_31_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_29_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][4]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_4_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1[2][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_1_reg[2][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 24 pins.
+INFO: [Physopt 32-81] Processed net DataBuffer/r_SortedBuffer_1[2][2]_i_2_n_0. Replicated 1 times.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][0]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[4][7]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_3_n_0. Critical path length was reduced through logic transformation on cell DataBuffer/r_SortedBuffer_0[4][1]_i_3_comp.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0]_8[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net Demo_DCM/inst/clk_out1_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_24_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][1]_i_3_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[3][6]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[3][6]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][1]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_39_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][3]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_28_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_52_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][0]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[2][7]_i_45_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_58_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][5]_i_8_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][6]_i_11_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_15_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[4][7]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_9_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][6]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_30_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][2]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][6]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][6]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[2][7]_i_65_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[0][6]_i_29_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][6]_i_89_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][1]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_42_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/arr0[1]1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_90_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_107_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0_reg[6][7]_i_41_n_7. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[6][7]_i_85_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_SortedBuffer_0[0][2]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net DataBuffer/r_Buffer_0_reg[0]_7[3]. Optimizations did not improve timing on the net.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2855.223 ; gain = 0.000
+Phase 4 Critical Path Optimization | Checksum: c5a85c4c
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:40 . Memory (MB): peak = 2855.223 ; gain = 794.168
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2855.223 ; gain = 0.000
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-22.766 | TNS=-2152.227 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Path  |          1.515  |        103.456  |           13  |              0  |                   276  |           0  |           2  |  00:00:40  |
+|  Total          |          1.515  |        103.456  |           13  |              0  |                   276  |           0  |           3  |  00:00:40  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2855.223 ; gain = 0.000
+Ending Physical Synthesis Task | Checksum: 20f2be1a8
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:40 . Memory (MB): peak = 2855.223 ; gain = 794.168
+INFO: [Common 17-83] Releasing license: Implementation
+1018 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:01:16 ; elapsed = 00:00:41 . Memory (MB): peak = 2855.223 ; gain = 806.801
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2873.098 ; gain = 0.004
+Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.145 . Memory (MB): peak = 2873.098 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2873.098 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2873.098 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2873.098 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2873.098 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.170 . Memory (MB): peak = 2873.098 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_physopt.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 8711a6f2 ConstDB: 0 ShapeSum: 42181b54 RouteDB: a0815c57
+Post Restoration Checksum: NetGraph: 769c3b48 | NumContArr: 772b65 | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 1fc655be7
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 1fc655be7
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 1fc655be7
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2959.219 ; gain = 66.707
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 2bc33f671
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 2959.219 ; gain = 66.707
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.728| TNS=-2034.410| WHS=-0.207 | THS=-7.577 |
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0465598 %
+  Global Horizontal Routing Utilization  = 0.013925 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 2839
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 2835
+  Number of Partially Routed Nets     = 4
+  Number of Node Overlaps             = 7
+
+Phase 2 Router Initialization | Checksum: 26862b66c
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 26862b66c
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 236b83db2
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 2959.219 ; gain = 66.707
+Phase 4 Initial Routing | Checksum: 236b83db2
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 2959.219 ; gain = 66.707
+INFO: [Route 35-580] Design has 2 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+====================+=========================================+
+| Launch Setup Clock | Launch Hold Clock  | Pin                                     |
++====================+====================+=========================================+
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | DataBuffer/r_SortedBuffer_1_reg[7][5]/D |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | DataBuffer/r_SortedBuffer_1_reg[7][6]/D |
++--------------------+--------------------+-----------------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 1958
+ Number of Nodes with overlaps = 777
+ Number of Nodes with overlaps = 523
+ Number of Nodes with overlaps = 216
+ Number of Nodes with overlaps = 95
+ Number of Nodes with overlaps = 47
+ Number of Nodes with overlaps = 25
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-30.812| TNS=-2928.035| WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Global Iteration 0 | Checksum: 19f5fced7
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:16 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 5.2 Global Iteration 1
+ Number of Nodes with overlaps = 840
+ Number of Nodes with overlaps = 378
+ Number of Nodes with overlaps = 273
+ Number of Nodes with overlaps = 144
+ Number of Nodes with overlaps = 103
+ Number of Nodes with overlaps = 38
+ Number of Nodes with overlaps = 18
+ Number of Nodes with overlaps = 17
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 12
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-30.996| TNS=-2956.215| WHS=N/A    | THS=N/A    |
+
+Phase 5.2 Global Iteration 1 | Checksum: 1d29df731
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+Phase 5 Rip-up And Reroute | Checksum: 1d29df731
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1f627ed45
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-30.804| TNS=-2925.283| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 6.1 Delay CleanUp | Checksum: 37590380f
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 37590380f
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+Phase 6 Delay and Skew Optimization | Checksum: 37590380f
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-30.714| TNS=-2917.480| WHS=-0.016 | THS=-0.021 |
+
+Phase 7.1 Hold Fix Iter | Checksum: 34b3da0ac
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 7.2 Non Free Resource Hold Fix Iter
+Phase 7.2 Non Free Resource Hold Fix Iter | Checksum: 29a33ba4b
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+Phase 7 Post Hold Fix | Checksum: 29a33ba4b
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 1.42741 %
+  Global Horizontal Routing Utilization  = 1.67686 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 39.6396%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 60.3604%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 64.7059%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 54.4118%, No Congested Regions.
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+
+Phase 8 Route finalize | Checksum: 29a33ba4b
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 29a33ba4b
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:20 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 2e734b3c5
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 11 Post Process Routing
+Phase 11 Post Process Routing | Checksum: 2e734b3c5
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Phase 12 Post Router Timing
+
+Phase 12.1 Update Timing
+Phase 12.1 Update Timing | Checksum: 2e734b3c5
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 2959.219 ; gain = 66.707
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-30.714| TNS=-2917.480| WHS=0.058  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 12 Post Router Timing | Checksum: 2e734b3c5
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 2959.219 ; gain = 66.707
+Total Elapsed time in route_design: 20.637 secs
+
+Phase 13 Post-Route Event Processing
+Phase 13 Post-Route Event Processing | Checksum: 182112b11
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 2959.219 ; gain = 66.707
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: 182112b11
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 2959.219 ; gain = 66.707
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+1037 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:22 . Memory (MB): peak = 2959.219 ; gain = 86.121
+INFO: [Vivado 12-24828] Executing command : report_drc -file T05_M3_TopLevel_drc_routed.rpt -pb T05_M3_TopLevel_drc_routed.pb -rpx T05_M3_TopLevel_drc_routed.rpx
+Command: report_drc -file T05_M3_TopLevel_drc_routed.rpt -pb T05_M3_TopLevel_drc_routed.pb -rpx T05_M3_TopLevel_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_drc_routed.rpt.
+report_drc completed successfully
+INFO: [Vivado 12-24828] Executing command : report_methodology -file T05_M3_TopLevel_methodology_drc_routed.rpt -pb T05_M3_TopLevel_methodology_drc_routed.pb -rpx T05_M3_TopLevel_methodology_drc_routed.rpx
+Command: report_methodology -file T05_M3_TopLevel_methodology_drc_routed.rpt -pb T05_M3_TopLevel_methodology_drc_routed.pb -rpx T05_M3_TopLevel_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file T05_M3_TopLevel_timing_summary_routed.rpt -pb T05_M3_TopLevel_timing_summary_routed.pb -rpx T05_M3_TopLevel_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+INFO: [Vivado 12-24838] Running report commands "report_incremental_reuse, report_route_status" in parallel.
+Running report generation with 2 threads.
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file T05_M3_TopLevel_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [Vivado 12-24828] Executing command : report_route_status -file T05_M3_TopLevel_route_status.rpt -pb T05_M3_TopLevel_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_power -file T05_M3_TopLevel_power_routed.rpt -pb T05_M3_TopLevel_power_summary_routed.pb -rpx T05_M3_TopLevel_power_routed.rpx
+Command: report_power -file T05_M3_TopLevel_power_routed.rpt -pb T05_M3_TopLevel_power_summary_routed.pb -rpx T05_M3_TopLevel_power_routed.rpx
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+1054 Infos, 4 Warnings, 1 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file T05_M3_TopLevel_clock_utilization_routed.rpt
+WARNING: [Device 21-9320] Failed to find the Oracle tile group with name 'HSR_BOUNDARY_TOP'. This is required for Clock regions and Virtual grid.
+WARNING: [Device 21-2174] Failed to initialize Virtual grid.
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file T05_M3_TopLevel_bus_skew_routed.rpt -pb T05_M3_TopLevel_bus_skew_routed.pb -rpx T05_M3_TopLevel_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2959.219 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.147 . Memory (MB): peak = 2959.219 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2959.219 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 2959.219 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2959.219 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2959.219 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.197 . Memory (MB): peak = 2959.219 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Paing Htet Kyaw/VDHL Projects/Submission/T05_M3_Project_VFinal/T05_M3_Project_VFinal.runs/impl_1/T05_M3_TopLevel_routed.dcp' has been generated.
+Command: write_bitstream -force T05_M3_TopLevel.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC PDRC-153] Gated clock check: Net DataBuffer/cal_Mean is a gated clock net sourced by a combinational pin DataBuffer/r_Mean_0_reg[7]_i_2/O, cell DataBuffer/r_Mean_0_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net DataBuffer/o_LEDs_OBUF[3] is a gated clock net sourced by a combinational pin DataBuffer/o_LEDs_OBUF[5]_inst_i_1/O, cell DataBuffer/o_LEDs_OBUF[5]_inst_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net DataBuffer/o_LEDs_OBUF[4] is a gated clock net sourced by a combinational pin DataBuffer/o_LEDs_OBUF[6]_inst_i_1/O, cell DataBuffer/o_LEDs_OBUF[6]_inst_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net DataBuffer/r_Range_0__0 is a gated clock net sourced by a combinational pin DataBuffer/r_Range_0_reg[7]_i_2/O, cell DataBuffer/r_Range_0_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 4 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Bitstream compression saved 12665216 bits.
+Writing bitstream ./T05_M3_TopLevel.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+1069 Infos, 10 Warnings, 1 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 2959.219 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 22 02:19:02 2025...
