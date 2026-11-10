@@ -62,11 +62,6 @@ architecture Behavioral of T05_M3_BufferFilters is
     signal r_Work_1 : BufferArray := (others => (others => '0'));
     signal r_Phase  : integer range 0 to 9 := 0;
 
-    -- Signals to choose calculation
-     signal cal_Median : boolean  := FALSE;
-     signal cal_Mean : boolean  := FALSE;
-     signal cal_Mode : boolean  := FALSE;
-     signal cal_Range : boolean  := FALSE;
      
      
     -- Signals to calculate Median
@@ -84,6 +79,98 @@ architecture Behavioral of T05_M3_BufferFilters is
     -- Signals to calculate Range
     signal r_Range_0 : std_logic_vector(7 downto 0) := (others => '0');
     signal r_Range_1 : std_logic_vector(7 downto 0) := (others => '0');
+    -- Mode pipeline registers
+    type CountArray is array (0 to 7) of integer range 0 to 8;
+    signal r_Count_0, r_Count_1       : CountArray := (others => 0);
+    signal r_ModeVals_0, r_ModeVals_1 : BufferArray := (others => (others => '0'));
+
+    -- Mean: add the 8 sorted values as a balanced tree (3 adder levels, not 7),
+    -- then divide by the length with a shift. Unused slots are already zero.
+    function f_Mean(a : BufferArray; len : integer) return std_logic_vector is
+        variable s01, s23, s45, s67 : unsigned(10 downto 0);
+        variable s03, s47, total    : unsigned(10 downto 0);
+    begin
+        s01 := resize(unsigned(a(0)), 11) + resize(unsigned(a(1)), 11);
+        s23 := resize(unsigned(a(2)), 11) + resize(unsigned(a(3)), 11);
+        s45 := resize(unsigned(a(4)), 11) + resize(unsigned(a(5)), 11);
+        s67 := resize(unsigned(a(6)), 11) + resize(unsigned(a(7)), 11);
+        s03 := s01 + s23;
+        s47 := s45 + s67;
+        total := s03 + s47;
+        case len is
+            when 2      => return std_logic_vector(resize(shift_right(total, 1), 8));
+            when 4      => return std_logic_vector(resize(shift_right(total, 2), 8));
+            when 8      => return std_logic_vector(resize(shift_right(total, 3), 8));
+            when others => return std_logic_vector(resize(total, 8));
+        end case;
+    end function;
+
+    -- Median of a sorted window: middle value, or average of the two middle values
+    function f_Median(a : BufferArray; len : integer) return std_logic_vector is
+        variable lo, hi : unsigned(8 downto 0);
+    begin
+        case len is
+            when 2 => lo := resize(unsigned(a(0)), 9); hi := resize(unsigned(a(1)), 9);
+            when 4 => lo := resize(unsigned(a(1)), 9); hi := resize(unsigned(a(2)), 9);
+            when 8 => lo := resize(unsigned(a(3)), 9); hi := resize(unsigned(a(4)), 9);
+            when others => return a(0);
+        end case;
+        return std_logic_vector(resize(shift_right(lo + hi, 1), 8));
+    end function;
+
+    -- Range of a sorted window: largest (last active) minus smallest (first)
+    function f_Range(a : BufferArray; len : integer) return std_logic_vector is
+        variable top : unsigned(7 downto 0);
+    begin
+        case len is
+            when 2      => top := unsigned(a(1));
+            when 4      => top := unsigned(a(3));
+            when 8      => top := unsigned(a(7));
+            when others => top := unsigned(a(0));
+        end case;
+        return std_logic_vector(top - unsigned(a(0)));
+    end function;
+
+    -- Mode stage 1: for each active slot, how many active slots hold the same value
+    function f_Counts(a : BufferArray; len : integer) return CountArray is
+        variable c : CountArray := (others => 0);
+        variable n : integer range 0 to 8;
+    begin
+        for i in 0 to 7 loop
+            n := 0;
+            if i < len then
+                for j in 0 to 7 loop
+                    if j < len and a(i) = a(j) then
+                        n := n + 1;
+                    end if;
+                end loop;
+            end if;
+            c(i) := n;
+        end loop;
+        return c;
+    end function;
+
+    -- Mode stage 2: tournament (3 levels) - the higher count wins; on a tie the
+    -- LEFT entry wins, and since the window is sorted that is the smaller value
+    function f_PickMode(v : BufferArray; c : CountArray) return std_logic_vector is
+        type PairV is array (0 to 3) of std_logic_vector(7 downto 0);
+        type PairC is array (0 to 3) of integer range 0 to 8;
+        variable v1 : PairV; variable c1 : PairC;
+        variable v2a, v2b : std_logic_vector(7 downto 0);
+        variable c2a, c2b : integer range 0 to 8;
+    begin
+        for k in 0 to 3 loop
+            if c(2*k) >= c(2*k + 1) then
+                v1(k) := v(2*k);     c1(k) := c(2*k);
+            else
+                v1(k) := v(2*k + 1); c1(k) := c(2*k + 1);
+            end if;
+        end loop;
+        if c1(0) >= c1(1) then v2a := v1(0); c2a := c1(0); else v2a := v1(1); c2a := c1(1); end if;
+        if c1(2) >= c1(3) then v2b := v1(2); c2b := c1(2); else v2b := v1(3); c2b := c1(3); end if;
+        if c2a >= c2b then return v2a; else return v2b; end if;
+    end function;
+
     
     
     
@@ -210,228 +297,49 @@ begin
         end if;
     end process;
     
-    -- Process to choose calulation - Written by Paing
-    Cal_Control: process (i_Clk, i_DisplaySelect)
-    begin
-        case i_DisplaySelect is 
-        when 0 =>              
-            cal_Mean <= TRUE;
-            cal_Median <= FALSE;   
-            cal_Mode <= FALSE;
-            cal_Range <= FALSE;
-        when 1 =>              
-            cal_Mean <= FALSE;
-            cal_Median <= TRUE;
-            cal_Mode <= FALSE;
-            cal_Range <= FALSE; 
-        when 2 =>     
-            cal_Median <= FALSE;
-            cal_Mean <= FALSE;
-            cal_Mode <= TRUE;
-            cal_Range <= FALSE;
-        when 3 => 
-            cal_Median <= FALSE;
-            cal_Mean <= FALSE;
-            cal_Mode <= FALSE;
-            cal_Range <= TRUE;
-        when others =>    
-            cal_Median <= FALSE;
-            cal_Mean <= FALSE;
-            cal_Mode <= FALSE;
-            cal_Range <= FALSE;
-        end case;
-    end process;
-    
-    
-    -- Process to calculate median - Written by Paing
-    Median_Filter: process (i_Clk, i_Reset, i_BufferLength, r_SortedBuffer_0, r_SortedBuffer_1, cal_Median)
-        variable arr0, arr1 : BufferArray;
-        variable mid1, mid2, mid3, mid4 : unsigned(7 downto 0);
-        variable avg0, avg1 : unsigned(8 downto 0); -- Use 1 extra bit for intermediate results
-    begin
-        if i_Reset = '1'then
-            r_Median_0 <= x"00";        
-            r_Median_1 <= x"00"; 
-        elsif cal_Median then 
-            -- Initialize the array
-            arr0 := r_SortedBuffer_0;
-            arr1 := r_SortedBuffer_1;    
-        
-            -- Compute the median for arr0
-            if i_BufferLength mod 2 = 0 then
-                -- Even number of elements: take the average of the two middle values
-                mid1 := unsigned(arr0(i_BufferLength/ 2 - 1));
-                mid2 := unsigned(arr0(i_BufferLength / 2));
-                avg0 := (resize(mid1, 9) + resize(mid2, 9)) / 2; -- Resize to avoid overflow
-                r_Median_0 <= std_logic_vector(avg0(7 downto 0)); -- Convert back to 8-bit std_logic_vector
-            else
-                -- Odd number of elements: take the middle value
-                r_Median_0 <= arr0(i_BufferLength / 2);
-            end if;
-        
-            -- Compute the median for arr1
-            if i_BufferLength mod 2 = 0 then
-                -- Even number of elements: take the average of the two middle values
-                mid3 := unsigned(arr1(i_BufferLength / 2 - 1));
-                mid4 := unsigned(arr1(i_BufferLength / 2));
-                avg1 := (resize(mid3, 9) + resize(mid4, 9)) / 2; -- Resize to avoid overflow
-                r_Median_1 <= std_logic_vector(avg1(7 downto 0)); -- Convert back to 8-bit std_logic_vector
-            else
-                -- Odd number of elements: take the middle value
-                r_Median_1 <= arr1(i_BufferLength / 2);       
-            end if;
-        end if;
-    end process;
-    
-    
-    --Process to calculate mean value - Written by Joe -- Modified by Paing for consistancy with 'for loop'
-    MeanFilter: process (i_Clk, i_Reset, i_BufferLength, r_SortedBuffer_0, r_SortedBuffer_1, cal_Mean) 
-        variable arr0, arr1 : BufferArray;
-        variable sum0, sum1 : unsigned(15 downto 0); -- Use extended width to prevent overflow
-        variable mean0, mean1 : unsigned(7 downto 0); -- Final mean value (8 bits)
-        variable i          : integer;              -- Loop index
-    begin
-        if i_Reset = '1'then
-            r_Mean_0 <= x"00";        
-            r_Mean_1 <= x"00"; 
-        elsif cal_Mean then
-            -- Initialize the array
-            arr0 := r_SortedBuffer_0;
-            arr1 := r_SortedBuffer_1;
-                
-            -- Initialize the sum to zero
-            sum0 := (others => '0');
-            sum1 := (others => '0');   
-                     
-            -- Iterate through the array and compute the sum
-            for i in arr0'range loop
-                sum0 := sum0 + resize(unsigned(arr0(i)), 16); -- Extend to 16 bits
-                sum1 := sum1 + resize(unsigned(arr1(i)), 16); -- Extend to 16 bits
-            end loop;       
-               
-            -- Compute the mean by dividing the sum by the array length
-            mean0 := resize(sum0 / to_unsigned(i_BufferLength, sum0'length), 8);
-            mean1 := resize(sum1 / to_unsigned(i_BufferLength, sum1'length), 8);           
-            
-            -- Assign the mean to the output
-            r_Mean_0 <= std_logic_vector(mean0);
-            r_Mean_1 <= std_logic_vector(mean1); 
-                  
-        end if;
-    end process;
-  
-  
-   -- Process to calculate mode  -- Written by Paing 
-    Mode_Calculation: process(i_Clk, i_Reset, i_BufferLength, r_SortedBuffer_0, r_SortedBuffer_1, cal_Mode)
-        variable buffer_max_length: integer := 8;
-        variable count : integer := 0;
-        variable max_count : integer := 0;
-        variable mode_value : std_logic_vector(7 downto 0) := (others => '0'); -- Track the mode value
-        variable i, j : integer;
+    ----------------------------------------------------------------------------
+    -- Statistics - rewritten Nov 2026
+    -- Before: four UNclocked processes, each only updating while its statistic
+    -- was selected, so Vivado built 64 latches (TIMING-20). The mean also
+    -- divided by a variable length, which builds a divider circuit.
+    -- Now: all four statistics are computed every clock into registers.
+    --   Mean   : balanced adder tree, then divide by 2/4/8 as a right shift
+    --   Median : middle value, or average of the two middle values (shift by 1)
+    --   Range  : last active value minus first (buffer is sorted)
+    --   Mode   : 2-stage pipeline - stage 1 counts how often each value appears,
+    --            stage 2 picks the highest count (ties -> smaller value)
+    -- Lengths are 1, 2, 4 or 8 (set by the switches in the top level).
+    ----------------------------------------------------------------------------
+    Statistics: process (i_Clk, i_Reset)
     begin
         if i_Reset = '1' then
-            r_Mode_0 <= x"00";
-            r_Mode_1 <= x"00";
-        elsif cal_Mode then
-            -- Mode for r_SortedBuffer_0
-            max_count := 0;
-            mode_value := x"00";
-            for i in 0 to buffer_max_length - 1 loop
-                count := 0;
-                -- Only process active elements
-                if i < i_BufferLength then
-                    for j in 0 to buffer_max_length - 1 loop
-                        if j < i_BufferLength then
-                            if r_SortedBuffer_0(i) = r_SortedBuffer_0(j) then
-                                count := count + 1;
-                            end if;
-                        end if;
-                    end loop;
+            r_Mean_0   <= (others => '0');  r_Mean_1   <= (others => '0');
+            r_Median_0 <= (others => '0');  r_Median_1 <= (others => '0');
+            r_Range_0  <= (others => '0');  r_Range_1  <= (others => '0');
+            r_Mode_0   <= (others => '0');  r_Mode_1   <= (others => '0');
+            r_Count_0  <= (others => 0);    r_Count_1  <= (others => 0);
+            r_ModeVals_0 <= (others => (others => '0'));
+            r_ModeVals_1 <= (others => (others => '0'));
+        elsif rising_edge(i_Clk) then
+            r_Mean_0   <= f_Mean(r_SortedBuffer_0, i_BufferLength);
+            r_Mean_1   <= f_Mean(r_SortedBuffer_1, i_BufferLength);
+            r_Median_0 <= f_Median(r_SortedBuffer_0, i_BufferLength);
+            r_Median_1 <= f_Median(r_SortedBuffer_1, i_BufferLength);
+            r_Range_0  <= f_Range(r_SortedBuffer_0, i_BufferLength);
+            r_Range_1  <= f_Range(r_SortedBuffer_1, i_BufferLength);
 
-                    -- Check if this value has the highest count
-                    if count > max_count then
-                        max_count := count;
-                        mode_value := r_SortedBuffer_0(i);
-                    elsif count = max_count then
-                        -- If tied, select the smallest value
-                        if unsigned(r_SortedBuffer_0(i)) < unsigned(mode_value) then
-                            mode_value := r_SortedBuffer_0(i);
-                        end if;
-                    end if;
-                end if;
-            end loop;
+            -- Mode stage 1: count occurrences, keep the values they belong to
+            r_Count_0    <= f_Counts(r_SortedBuffer_0, i_BufferLength);
+            r_Count_1    <= f_Counts(r_SortedBuffer_1, i_BufferLength);
+            r_ModeVals_0 <= r_SortedBuffer_0;
+            r_ModeVals_1 <= r_SortedBuffer_1;
 
-            -- Assign the mode to the output
-            r_Mode_0 <= mode_value;
-
-            -- Mode for r_SortedBuffer_1 (repeat same logic for second buffer)
-            max_count := 0;
-            mode_value := x"00";
-            for i in 0 to buffer_max_length - 1 loop
-                count := 0;
-                -- Only process active elements
-                if i < i_BufferLength then
-                    for j in 0 to buffer_max_length - 1 loop
-                        if j < i_BufferLength then
-                            if r_SortedBuffer_1(i) = r_SortedBuffer_1(j) then
-                                count := count + 1;
-                            end if;
-                        end if;
-                    end loop;
-
-                    -- Check if this value has the highest count
-                    if count > max_count then
-                        max_count := count;
-                        mode_value := r_SortedBuffer_1(i);
-                    elsif count = max_count then
-                        -- If tied, select the smallest value
-                        if unsigned(r_SortedBuffer_1(i)) < unsigned(mode_value) then
-                            mode_value := r_SortedBuffer_1(i);
-                        end if;
-                    end if;
-                end if;
-            end loop;
-
-            -- Assign the mode to the output
-            r_Mode_1 <= mode_value;
+            -- Mode stage 2: pick the winner from the registered counts
+            r_Mode_0 <= f_PickMode(r_ModeVals_0, r_Count_0);
+            r_Mode_1 <= f_PickMode(r_ModeVals_1, r_Count_1);
         end if;
     end process;
-       
-   -- Process to calculate range - Written by Paing
-    Range_Calculation: process(i_Clk, i_Reset, i_BufferLength, r_SortedBuffer_0, r_SortedBuffer_1, cal_Range)
-        variable min_value_0, max_value_0 : unsigned(8 downto 0) := (others => '0'); 
-        variable min_value_1, max_value_1 : unsigned(8 downto 0) := (others => '0');
-        variable range_0, range_1 : unsigned(8 downto 0) := (others => '0'); -- 9 bits for safety
-    begin
-        if i_Reset = '1' then
-            -- Reset the range values to zero
-            r_Range_0 <= x"00";
-            r_Range_1 <= x"00";
-        elsif cal_Range then
-            -- Range for r_SortedBuffer_0
-            if i_BufferLength > 0 then
-               -- Calculate the range
-                min_value_0 := resize(unsigned(r_SortedBuffer_0(0)), 9); -- Resize to 9 bits
-                max_value_0 := resize(unsigned(r_SortedBuffer_0(i_BufferLength - 1)), 9); -- Resize to 9 bits
-                range_0 := max_value_0 - min_value_0;
 
-                -- Assign range back to 8-bit std_logic_vector
-                r_Range_0 <= std_logic_vector(range_0(7 downto 0));
-            end if;
-
-            -- Range for r_SortedBuffer_1
-            if i_BufferLength > 0 then
-               -- Calculate the range
-                min_value_1 := resize(unsigned(r_SortedBuffer_1(0)), 9); -- Resize to 9 bits
-                max_value_1 := resize(unsigned(r_SortedBuffer_1(i_BufferLength - 1)), 9); -- Resize to 9 bits
-                range_1 := max_value_1 - min_value_1;
-
-                -- Assign range back to 8-bit std_logic_vector
-                r_Range_1 <= std_logic_vector(range_1(7 downto 0));
-            end if;
-        end if;
-    end process;
-      
     -- Assignment -- Written by Paing 
     OuputAssignments : process (i_Clk, r_Buffer_ON, i_DisplaySelect,i_Data_0, i_Data_1, r_Mean_0, r_Mean_1, r_Median_0, r_Median_1,r_Mode_0, r_Mode_1, r_Range_0, r_Range_1)
     begin
