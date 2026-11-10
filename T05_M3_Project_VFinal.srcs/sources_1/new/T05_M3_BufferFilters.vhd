@@ -54,7 +54,14 @@ architecture Behavioral of T05_M3_BufferFilters is
     -- Signals to sort buffer
     signal r_SortedBuffer_0 : BufferArray := (others => (others => '0'));
     signal r_SortedBuffer_1 : BufferArray := (others => (others => '0'));
-    
+
+    -- Signals for the multi-cycle odd-even transposition sort
+    -- r_Phase: 0 = load a snapshot of the buffer, 1..8 = one compare-swap phase per clock,
+    --          9 = publish the result to r_SortedBuffer, then start again
+    signal r_Work_0 : BufferArray := (others => (others => '0'));
+    signal r_Work_1 : BufferArray := (others => (others => '0'));
+    signal r_Phase  : integer range 0 to 9 := 0;
+
     -- Signals to choose calculation
      signal cal_Median : boolean  := FALSE;
      signal cal_Mean : boolean  := FALSE;
@@ -97,75 +104,110 @@ begin
     
     
     -- Process to update buffer - Written by Paing & Joe
-    Bufferstore: process(i_Clk, i_Reset, i_BufferLength)  
+    -- Fix (Nov 2026): the write index is now cleared by reset, and pulled back
+    -- into the window if the buffer length shrinks below it. The 'mod' by a
+    -- variable (which needs a divider) is replaced by a simple compare-and-wrap.
+    Bufferstore: process(i_Clk, i_Reset)
+        variable v_Index : integer range 0 to 7;
     begin
         if i_Reset = '1'then
-            r_Buffer_0 <= (others => (others => '0'));        
-            r_Buffer_1 <= (others => (others => '0'));       
+            r_Buffer_0 <= (others => (others => '0'));
+            r_Buffer_1 <= (others => (others => '0'));
+            r_WriteIndex <= 0;
         elsif rising_edge(i_Clk) then
-            if i_CE1Hz = '1' and r_Buffer_ON then 
-            -- Store the incoming data in the buffers
-            r_Buffer_0(r_WriteIndex) <= i_Data_0;
-            r_Buffer_1(r_WriteIndex) <= i_Data_1;
-            
-            -- Increment write index
-            r_WriteIndex <= (r_WriteIndex + 1) mod i_BufferLength;         
+            if i_CE1Hz = '1' and r_Buffer_ON then
+                -- If the length was reduced, the old index may be outside the window
+                if r_WriteIndex >= i_BufferLength then
+                    v_Index := 0;
+                else
+                    v_Index := r_WriteIndex;
+                end if;
+
+                -- Store the incoming data in the buffers
+                r_Buffer_0(v_Index) <= i_Data_0;
+                r_Buffer_1(v_Index) <= i_Data_1;
+
+                -- Move the pointer on, wrapping at the end of the window
+                if v_Index + 1 >= i_BufferLength then
+                    r_WriteIndex <= 0;
+                else
+                    r_WriteIndex <= v_Index + 1;
+                end if;
             end if;
         end if;
     end process;
    
    
     -- Process to Sort buffer - Synthesis Compatible Version -- Written By Paing 
-    Sorting_Buffer: process (i_Clk, i_Reset, i_BufferLength)
-        variable arr0, arr1 : BufferArray;
-        variable temp0, temp1 : std_logic_vector(7 downto 0);
-        constant BUFFER_SIZE : integer := 8; -- Fixed buffer size
-        variable i, j : integer;
+    -- Rewritten Nov 2026: odd-even transposition sort, one phase per clock.
+    -- The old version bubble-sorted all 8 values in ONE clock using variables,
+    -- which built a 49-level logic chain (-30.7 ns slack at 100 MHz).
+    -- Here each clock does ONE phase: up to 4 compare-swaps side by side on
+    -- disjoint pairs, so the path is a single comparator deep. Uses signals,
+    -- not variables, so nothing chains within a clock.
+    -- A full sort takes 10 clocks (100 ns); samples arrive once per second.
+    Sorting_Buffer: process (i_Clk, i_Reset)
     begin
         if i_Reset = '1' then
-            r_SortedBuffer_0 <= (others => (others => '0'));        
-            r_SortedBuffer_1 <= (others => (others => '0'));              
+            r_SortedBuffer_0 <= (others => (others => '0'));
+            r_SortedBuffer_1 <= (others => (others => '0'));
+            r_Work_0 <= (others => (others => '0'));
+            r_Work_1 <= (others => (others => '0'));
+            r_Phase  <= 0;
         elsif rising_edge(i_Clk) then
-                -- Load buffer into temporary arrays for sorting
-                arr0 := r_Buffer_0;
-                arr1 := r_Buffer_1;
-    
-                -- Bubble Sort for fixed buffer size
-                for i in 0 to BUFFER_SIZE - 2 loop
-                    for j in 0 to BUFFER_SIZE - 2 - i loop
-                        -- Sort only up to i_BufferLength, leave unused indices untouched
-                        if j < i_BufferLength - 1 then
-                            if arr0(j) > arr0(j + 1) then
-                                -- Swap arr0 elements
-                                temp0 := arr0(j);
-                                arr0(j) := arr0(j + 1);
-                                arr0(j + 1) := temp0;
+            if r_Phase = 0 then
+                -- Take a snapshot of the buffer to sort
+                r_Work_0 <= r_Buffer_0;
+                r_Work_1 <= r_Buffer_1;
+                r_Phase  <= 1;
+
+            elsif r_Phase <= 8 then
+                -- 8 phases always sort up to 8 values
+                if (r_Phase mod 2) = 1 then
+                    -- Odd phase: compare pairs (0,1) (2,3) (4,5) (6,7)
+                    for k in 0 to 3 loop
+                        if 2*k + 1 < i_BufferLength then        -- only inside the active window
+                            if r_Work_0(2*k) > r_Work_0(2*k + 1) then
+                                r_Work_0(2*k)     <= r_Work_0(2*k + 1);
+                                r_Work_0(2*k + 1) <= r_Work_0(2*k);
                             end if;
-    
-                            if arr1(j) > arr1(j + 1) then
-                                -- Swap arr1 elements
-                                temp1 := arr1(j);
-                                arr1(j) := arr1(j + 1);
-                                arr1(j + 1) := temp1;
+                            if r_Work_1(2*k) > r_Work_1(2*k + 1) then
+                                r_Work_1(2*k)     <= r_Work_1(2*k + 1);
+                                r_Work_1(2*k + 1) <= r_Work_1(2*k);
                             end if;
                         end if;
                     end loop;
-                end loop;
-    
-                -- Assign sorted values back to output buffers
-                for i in 0 to BUFFER_SIZE - 1 loop
+                else
+                    -- Even phase: compare pairs (1,2) (3,4) (5,6)
+                    for k in 0 to 2 loop
+                        if 2*k + 2 < i_BufferLength then
+                            if r_Work_0(2*k + 1) > r_Work_0(2*k + 2) then
+                                r_Work_0(2*k + 1) <= r_Work_0(2*k + 2);
+                                r_Work_0(2*k + 2) <= r_Work_0(2*k + 1);
+                            end if;
+                            if r_Work_1(2*k + 1) > r_Work_1(2*k + 2) then
+                                r_Work_1(2*k + 1) <= r_Work_1(2*k + 2);
+                                r_Work_1(2*k + 2) <= r_Work_1(2*k + 1);
+                            end if;
+                        end if;
+                    end loop;
+                end if;
+                r_Phase <= r_Phase + 1;
+
+            else
+                -- Phase 9: publish the sorted result; unused slots read as zero
+                for i in 0 to 7 loop
                     if i < i_BufferLength then
-                    
-                        -- Pass sorted values for active buffer elements
-                        r_SortedBuffer_0(i) <= arr0(i);
-                        r_SortedBuffer_1(i) <= arr1(i);
+                        r_SortedBuffer_0(i) <= r_Work_0(i);
+                        r_SortedBuffer_1(i) <= r_Work_1(i);
                     else
-                        -- Assign zero to inactive buffer slots
                         r_SortedBuffer_0(i) <= (others => '0');
                         r_SortedBuffer_1(i) <= (others => '0');
                     end if;
                 end loop;
+                r_Phase <= 0;
             end if;
+        end if;
     end process;
     
     -- Process to choose calulation - Written by Paing

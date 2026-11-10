@@ -21,6 +21,9 @@ end tb_BufferFilters;                      -- a testbench has no ports
 architecture sim of tb_BufferFilters is
 
     constant CLK_PERIOD : time := 10 ns;   -- 100 MHz
+    -- Clocks to wait before reading a result. The multi-cycle sort needs up to
+    -- 20 clocks (finish current pass + one full 10-clock pass); 25 gives margin.
+    constant SETTLE     : integer := 25;
 
     -- Signals that drive / observe the design under test (DUT)
     signal i_Clk           : std_logic := '0';
@@ -97,7 +100,7 @@ begin
             variable got0, got1 : integer;
         begin
             i_DisplaySelect <= sel;
-            tick(3);                       -- buffer -> sort -> statistic needs a few clocks
+            tick(SETTLE);                  -- wait for buffer -> sort -> statistic
             got0 := to_integer(unsigned(o_Data_0));
             got1 := to_integer(unsigned(o_Data_1));
             checks := checks + 2;
@@ -229,7 +232,7 @@ begin
         end loop;
         i_BufferLength <= 4; tick(2);
         push(50, 50);
-        i_DisplaySelect <= 3; tick(3);
+        i_DisplaySelect <= 3; tick(SETTLE);
         checks := checks + 1;
         if to_integer(unsigned(o_Data_0)) /= 40 then
             bugs := bugs + 1;
