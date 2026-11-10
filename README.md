@@ -1,224 +1,182 @@
-# Rolling Arithmetic Filter – FPGA Design on Basys 3
+# Rolling Arithmetic Filter – VHDL on a Basys 3 FPGA
 
-> **A hierarchical VHDL system for the Xilinx Artix‑7 FPGA that performs real‑time rolling Mean, Median, Mode and Range calculations on both generated waveforms and live XADC analogue inputs.**
+A VHDL design for the Artix-7 FPGA (Digilent Basys 3) that computes a rolling **mean, median, mode and range** over the last 2, 4 or 8 samples of two data channels, taken either from an on-chip waveform generator or from the XADC analogue inputs. Results are shown in hexadecimal on the seven-segment display.
 
-![Vivado](https://img.shields.io/badge/Vivado-2024.1-blue)
+![Vivado](https://img.shields.io/badge/Vivado-2026.1-blue)
 ![VHDL](https://img.shields.io/badge/VHDL-2008-orange)
-![Board](https://img.shields.io/badge/Board-Basys%203%20(Artix‑7)-green)
-![Status](https://img.shields.io/badge/Status-Validated%20on%20Hardware-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![Board](https://img.shields.io/badge/Board-Basys%203%20(Artix--7)-green)
+![Timing](https://img.shields.io/badge/Timing-met%20at%20100%20MHz-brightgreen)
+![Tests](https://img.shields.io/badge/Testbench-77%2F77%20passing-brightgreen)
 
-<p align="center">
-  <i>Developed as the capstone team project for ENG631 – VHDL &amp; FPGA Systems (University of Portsmouth, 2024/25).</i>
-</p>
+Originally built as a two-person team project for ENG631 – VHDL & FPGA Systems (University of Portsmouth, 2024/25). In November 2026 I reworked the filter engine: added a self-checking testbench, fixed a timing failure, a write-pointer bug and 64 inferred latches, and re-ran implementation to confirm the results below.
 
 ---
 
-## 📖 Overview
+## Results of the 2026 rework
 
-This repository contains the complete Vivado project for a **rolling arithmetic filter** that processes data from two sources:
+| Metric (Vivado, xc7a35tcpg236-1, 100 MHz) | Original (Jan 2025) | Reworked (Nov 2026) |
+|---|---|---|
+| Worst negative slack (setup) | **−30.691 ns** (fails) | **+1.436 ns** (meets) |
+| Total negative slack | −2,914.9 ns | 0 ns |
+| Failing timing endpoints | 128 of 515 | 0 of 1,153 |
+| Worst hold slack | +0.158 ns | +0.074 ns |
+| Achievable clock (approx.) | ~24.6 MHz | 100 MHz |
+| Slice LUTs | 2,501 | 1,077 (−57%) |
+| Registers | 417 | 741 |
+| Inferred latches | 64 | 0 |
+| Clock domains | 2 (unintended crossing) | 1 |
+| Methodology critical warnings | TIMING-4, -6, -7, -27 | none |
 
-1. **Waveform generator** – produces sixteen‑byte sequences of square, triangular and sawtooth waves.
-2. **Xilinx XADC** – samples two auxiliary analogue channels (0‑1 V) and converts them to 8‑bit digital values.
+### What was wrong and how it was fixed
 
-Both streams are fed into a **configurable buffer** whose length can be set to 2, 4 or 8 samples. A **filter engine** then computes one of four statistics—**Mean, Median, Mode or Range**—and displays the result in hexadecimal on the Basys 3’s four‑digit seven‑segment display and on eight LEDs.
+**1. Sort did not fit in one clock cycle (−30.7 ns slack).**
+The buffer was bubble-sorted with nested `for` loops on *variables* inside one clocked process. In hardware a loop is unrolled, so all 28 compare-and-swap steps were chained between two registers: 49 logic levels and 40.5 ns of delay against a 10 ns clock. 72% of that delay was routing.
 
-The design is fully synchronous: a 100 MHz system clock drives two clock‑enable generators (1 Hz and 250 Hz) that pace data generation, buffer updates, filter calculations and display multiplexing.
+Samples only arrive once per second, so the sort does not need to finish in one clock. It is now an **odd-even transposition sort** running one phase per clock: each phase compares up to four disjoint pairs in parallel, so each path is a single comparator deep. A full sort of 8 values takes 10 clocks (100 ns). It uses signals, not variables, so nothing chains within a clock cycle.
+
+**2. Newest sample lost after shrinking the buffer (functional bug, found by the testbench).**
+The write pointer was not cleared by reset, and was not brought back inside the window when the buffer length was reduced. With the pointer on slot 5, switching from length 8 to length 4 caused the next sample to be written outside the active window and ignored. The pointer is now reset, and wraps to slot 0 when it is outside the window. The `mod` by a variable length (which builds a divider) was replaced by a compare-and-wrap.
+
+**3. 64 latches in the statistics logic.**
+Mean, median, mode and range were unclocked processes that only updated while their statistic was selected on the switches, so Vivado inferred latches to hold the values in between. All four are now computed every clock into registers:
+- **Mean:** balanced adder tree (3 levels instead of 7), then divide by 2, 4 or 8 as a right shift instead of a divider.
+- **Median:** fixed middle position(s) for each supported length.
+- **Range:** last active value minus first (the buffer is sorted).
+- **Mode:** two-stage pipeline. Stage 1 counts how often each value appears; stage 2 picks the highest count with a three-level tournament. Ties go to the smaller value.
+
+**4. Two clock domains.**
+Every module ran on the clocking wizard's output except the waveform generator, which used the raw board clock, so data crossed between two clocks. It now uses the system clock like the rest of the design. A duplicate `create_clock -add` in the XDC (the clocking wizard IP already constrains its input) was also removed.
+
+The current critical path is the mean adder tree (`r_SortedBuffer → r_Mean`): 11 logic levels, 8.5 ns, 1.4 ns of slack.
 
 ---
 
-## 🚀 Key Features
+## Verification
 
-- **Rolling Filter Engine**
-  Computes **Mean, Median, Mode and Range** on‑the‑fly using a circular buffer.
-- **Configurable Buffer Depth**
-  User‑selectable window lengths of 2, 4 or 8 samples, changed at runtime via slide switches.
-- **Waveform Generator**
-  Generates sixteen‑byte sequences of Square 1, Square 2, Triangular and Sawtooth waves.
-- **XADC Interface**
-  Reads two analogue channels (VAUX6 & VAUX7) and scales 16‑bit data to 8‑bit values.
-- **Hexadecimal Display Driver**
-  Drives the four‑digit seven‑segment display with full hexadecimal encoding (0‑F), multiplexed at 250 Hz.
-- **Hardware Controls**
-  Debounced push‑buttons for Start/Reset, slide switches for mode selection, and LED status indicators.
-- **Fully Synchronous RTL Design**
-  All modules written in behavioural VHDL; verified with Vivado Simulator and tested on physical hardware.
-- **Complete Vivado Project**
-  Includes source files, a top‑level testbench, and an XDC constraints file.
+`T05_M3_Project_VFinal.srcs/sim_1/new/tb_BufferFilters.vhd` is a self-checking testbench for the filter engine (`T05_M3_BufferFilters`). It drives samples through the 1 Hz clock-enable input exactly as the hardware does, selects each statistic in turn, and compares both channels against values worked out by hand. It counts failures and prints a pass/fail summary, so no waveform reading is needed.
+
+| Test | What it checks |
+|---|---|
+| T1 | Buffer not yet full: empty slots count as zero (e.g. (6+6+9)/8 = 2, integer division) |
+| T2 | Full buffer of 8; three-way mode tie resolves to the smallest value |
+| T3 | Ninth sample overwrites the oldest |
+| T4 | Outlier: mean pulled up, median and mode unaffected |
+| T5–T7 | Buffer length changed at runtime (8 → 4 → 2) |
+| T8 | Maximum value 255 on both channels (no overflow) |
+| T9 | Length 1 switches the buffer off; input passes straight through |
+| T10 | Reset clears all state |
+| T11 | Regression test for the write-pointer bug above |
+
+Result: **77/77 checks pass** on the reworked design, in both Vivado XSim and GHDL. The testbench was written first, run against the original design (all functional checks passed, T11 reproduced the bug), and then used as a regression check after every change.
+
+To run it in Vivado: set `tb_BufferFilters` as the simulation top, run behavioural simulation, then **Run All** (the default 1000 ns is not long enough). The last line in the Tcl console should read:
+
+```
+==== ALL FUNCTIONAL TESTS PASSED (77 checks, 0 known bug(s) reproduced) ====
+```
+
+`T05_M3_TopLevel_TB.vhd` is the original top-level testbench from 2024. It applies stimulus only and is checked by eye in the waveform viewer.
 
 ---
 
-## 🧱 Repository Structure
+## Design overview
 
-```bash
+```
+ Wave generator ─┐                ┌──────────── BufferFilters ────────────┐
+ (test patterns) ├─► input select ─►  circular  ─► odd-even ─► statistics ─┼─► display driver ─► 7-segment
+ XADC (VAUX6/7) ─┘   (SW14)        │  buffer       sort        (registered)│    (hex, 250 Hz)
+                                   └────────────────────────────────────────┘
+ All logic on one 100 MHz clock (clocking wizard); 1 Hz and 250 Hz clock enables pace the data and display.
+```
+
+| Module | Function |
+|---|---|
+| `T05_M3_TopLevel.vhd` | Instantiates all modules; selects waveform or XADC data; drives display and LEDs |
+| `T05_M3_ClkEn1Hz.vhd`, `T05_M3_ClkEn250Hz.vhd` | Clock-enable pulses for sampling (1 Hz, with a fast mode) and display multiplexing |
+| `T05_M3_WaveGenerator.vhd` | FSM producing 16-step square, triangle and sawtooth sequences; Start button synchronised to the clock; outputs zeros for 8 samples when the waveform family is switched |
+| `T05_M3_XADC.vhd` | Alternates the XADC between channels VAUX6 and VAUX7 and keeps the upper 8 bits of each result |
+| `T05_M3_BufferFilters.vhd` | Circular buffer (length 2, 4 or 8), multi-cycle sort, registered mean/median/mode/range |
+| `T05_M3_BinaryCounter.vhd`, `T05_M3_DisplayDriver.vhd` | Seven-segment digit multiplexing and hex encoding |
+
+IP: `clk_wiz_0` (Clocking Wizard) and `xadc_wiz_0` (XADC Wizard).
+
+---
+
+## Known limitations
+
+- **Hardware:** the original design was tested on a Basys 3 board in 2025. The 2026 changes are verified in simulation and through implementation and timing analysis, but have not yet been re-tested on the board.
+- **I/O timing:** the switches, buttons and display have no input/output delay constraints (methodology warning TIMING-18). These are human-speed signals, so the risk is low, but they are not formally timed.
+- **Buffer lengths:** the statistics support lengths 1 (off), 2, 4 and 8, which are the values the switches can select.
+- **Asynchronous inputs:** apart from Start, the switches and the reset button are not synchronised to the clock.
+
+---
+
+## Repository structure
+
+```
 Rolling-Arithmatic-Filter/
-├── T05_M3_Project_VFinal.cache/ # Vivado cache
-├── T05_M3_Project_VFinal.gen/ # Generated IP sources (clk_wiz, xadc_wiz)
-├── T05_M3_Project_VFinal.hw/ # Hardware manager files
-├── T05_M3_Project_VFinal.ip_user_files/ # IP user files
-├── T05_M3_Project_VFinal.runs/ # Implementation runs
-├── T05_M3_Project_VFinal.sim/ # Simulation files
+├── T05_M3_Project_VFinal.xpr              Vivado project file
 ├── T05_M3_Project_VFinal.srcs/
-│ ├── constrs_1/new/
-│ │ └── T05_M3_Project.xdc # Pin constraints & clock definition
-│ ├── sim_1/new/
-│ │ └── T05_M3_TopLevel_TB.vhd # Top‑level testbench
-│ └── sources_1/
-│ ├── ip/ # IP core containers
-│ └── new/
-│ ├── T05_M3_BinaryCounter.vhd
-│ ├── T05_M3_BufferFilters.vhd
-│ ├── T05_M3_ClkEn1Hz.vhd
-│ ├── T05_M3_ClkEn250Hz.vhd
-│ ├── T05_M3_DisplayDriver.vhd
-│ ├── T05_M3_TopLevel.vhd
-│ ├── T05_M3_WaveGenerator.vhd
-│ └── T05_M3_XADC.vhd
+│   ├── constrs_1/new/T05_M3_Project.xdc   Pin and clock constraints
+│   ├── sim_1/new/
+│   │   ├── tb_BufferFilters.vhd           Self-checking testbench (2026)
+│   │   └── T05_M3_TopLevel_TB.vhd         Original top-level testbench
+│   └── sources_1/
+│       ├── ip/                            clk_wiz_0 and xadc_wiz_0 (.xci)
+│       └── new/                           VHDL sources
+├── .gitignore                             Excludes Vivado build output
 └── README.md
 ```
 
+Vivado build output (`.cache`, `.gen`, `.runs`, `.sim`, `.hw`, `.ip_user_files`) is not tracked; Vivado regenerates it.
 
 ---
 
-## 👥 Team
+## How to build
 
-| Name | Student ID | Role |
-|------|------------|------|
-| **Paing Htet Kyaw** | `up2301555` | Buffer‑filter engine, XADC integration, mode/range filters, simulation & hardware test |
-| **Joseph Stiles** | `up2244748` | Wave‑generator FSM, median/mean modules, top‑level integration & troubleshooting |
+1. Clone the repository:
+   ```
+   git clone https://github.com/ryan7302/Rolling-Arithmatic-Filter.git
+   ```
+2. Open `T05_M3_Project_VFinal.xpr` in Vivado 2026.1 or later. If prompted, upgrade the two IP cores and let Vivado generate their output products.
+3. Run synthesis, implementation and bitstream generation.
+4. Program the Basys 3 from the Hardware Manager.
 
-**Repository Owner:** [ryan7302 (Paing Htet Kyaw)](https://github.com/ryan7302)
+## How to operate
 
----
+| Control | Function |
+|---|---|
+| BTND (U17) | Start waveform generation |
+| BTNU (T18) | Reset |
+| SW0 (V17) | Fast mode: a sample every 250 clocks instead of once per second (for testing) |
+| SW15 (R2) | Waveform family: square / triangle and sawtooth |
+| SW14 (T1) | Data source: waveform generator / XADC |
+| SW2, SW1 (W16, V16) | Buffer length: 00 = off, 01 = 2, 10 = 4, 11 = 8 |
+| SW10, SW9 (T2, T3) | Statistic: 00 = mean, 01 = median, 10 = mode, 11 = range |
 
-## 🛠️ Tools & Technologies
+The display shows two hexadecimal digits per channel. LEDs show the selected buffer length and statistic.
 
-| Tool / Technology | Purpose |
-|-------------------|---------|
-| **Xilinx Vivado 2024.1** | Synthesis, implementation, simulation, and bitstream generation |
-| **VHDL (IEEE 1076‑2008)** | All custom modules written in behavioural VHDL |
-| **Basys 3 (Artix‑7 XC7A35T)** | Target FPGA board with 100 MHz oscillator, 7‑seg display, LEDs, XADC, switches |
-| **XADC Wizard IP** | On‑chip ADC configuration and data acquisition |
-| **clk_wiz_0 IP** | Clock Management Tile (CMT) for stable 100 MHz system clock |
-| **SystemVerilog / Verilog** | Generated IP wrappers (clk_wiz, xadc_wiz) |
-| **Tcl** | Vivado project scripts and constraints |
-
----
-
-## 🧠 Key Design Details
-
-### 1. Clock Enables (1 Hz & 250 Hz)
-Two modules divide the 100 MHz system clock to produce precise enable pulses. The 1 Hz enable paces data generation and buffer updates; the 250 Hz enable drives the seven‑segment display multiplexing.
-
-### 2. Waveform Generator (`T05_M3_WaveGenerator.vhd`)
-A finite‑state machine (FSM) generates sixteen 8‑bit values per cycle:
-- **Channel 0** – Square1 & Square2 sequences
-- **Channel 1** – Triangular & Sawtooth sequences
-
-A “flush” mechanism outputs sixteen bytes of `0x00` whenever the user switches between waveform families.
-
-### 3. XADC Module (`T05_M3_XADC.vhd`)
-Interfaces with the `xadc_wiz_0` IP in **continuous sequential mode**. An internal FSM toggles between channel addresses `0x16` (VAUX6) and `0x17` (VAUX7), extracts the upper 8 bits of the 16‑bit conversion result, and stores them in two 8‑bit registers.
-
-### 4. Buffer & Filter Engine (`T05_M3_BufferFilters.vhd`)
-- **Buffer** – a static array of 8 elements that behaves like a dynamic circular buffer. When the depth is set to 2, 4 or 8, only the active portion is sorted and used for calculations; the inactive portion is zeroed.
-- **Sorting** – bubble sort algorithm implemented with nested `for` loops, operating solely on the active buffer region.
-- **Filter Selection** – controlled by `i_DisplaySelect` ( `00` = Mean, `01` = Median, `10` = Mode, `11` = Range ).
-- **Edge Cases** – median for even‑length buffers averages the two middle values; mode breaks ties by choosing the smallest value.
-
-### 5. Display Driver (`T05_M3_DisplayDriver.vhd`)
-Accepts two 4‑bit BCD digits per seven‑segment position and encodes them as hexadecimal (0‑F). Anodes are multiplexed by a 2‑bit binary counter clocked at 250 Hz.
-
-### 6. Top‑Level (`T05_M3_TopLevel.vhd`)
-Instantiates all submodules, maps the XADC and Waveform Generator outputs to the Buffer/Filter inputs (depending on the XADC switch), and routes filter outputs to the Display Driver and LEDs.
-
----
-
-## 🔌 Pin Mapping (Basys 3)
+## Pin mapping (Basys 3)
 
 | Signal | Pin | Description |
-|--------|-----|-------------|
-| `i_Clk` | W5 | 100 MHz system clock |
-| `i_Reset` | T18 | Reset push‑button (BTNU) |
-| `i_Start` | U17 | Start push‑button (BTND) |
-| `i_Fast` | V17 | Fast‑mode switch (SW0) |
-| `i_WaveSwitch` | R2 | Waveform select switch (SW15) |
-| `i_XADCSwitch` | T1 | XADC enable switch (SW14) |
-| `i_BufferSizeSwitch[0]` | V16 | Buffer size LSB (SW1) |
-| `i_BufferSizeSwitch[1]` | W16 | Buffer size MSB (SW2) |
-| `i_DisplaySwitch[0]` | T3 | Filter select LSB (SW9) |
-| `i_DisplaySwitch[1]` | T2 | Filter select MSB (SW10) |
-| `vauxp6` / `vauxn6` | J3 / K3 | Analogue input channel 6 |
-| `vauxp7` / `vauxn7` | M2 / M1 | Analogue input channel 7 |
-| `o_SegmentCathodes` | — | Seven‑segment cathodes |
-| `o_SegmentAnodes` | — | Seven‑segment anodes |
-| `o_LEDs[7:0]` | U16, E19, … | LED status indicators |
+|---|---|---|
+| `i_Clk` | W5 | 100 MHz oscillator |
+| `i_Reset` | T18 | BTNU |
+| `i_Start` | U17 | BTND |
+| `i_Fast` | V17 | SW0 |
+| `i_WaveSwitch` | R2 | SW15 |
+| `i_XADCSwitch` | T1 | SW14 |
+| `i_BufferSizeSwitch[1:0]` | W16, V16 | SW2, SW1 |
+| `i_DisplaySwitch[1:0]` | T2, T3 | SW10, SW9 |
+| `vauxp6` / `vauxn6` | J3 / K3 | XADC channel 6 (JXADC header) |
+| `vauxp7` / `vauxn7` | M2 / M1 | XADC channel 7 (JXADC header) |
 
 ---
 
-## 🧪 Validation & Testing
+## Team and credits
 
-### Simulation
-- A top‑level testbench (`T05_M3_TopLevel_TB.vhd`) exercises the design with a 100 MHz clock, stimulus processes for Reset, Start, Fast, WaveSelect, BufferSize and DisplaySelect.
-- Simulations confirm correct waveform generation, buffer sizing, filter calculations, and display multiplexing.
+**Paing Htet Kyaw** ([ryan7302](https://github.com/ryan7302)) – buffer and filter engine, XADC integration, Start synchronisation and flush, mode and range filters, simulation and hardware test (2024/25); verification, timing closure and rework of the filter engine (2026).
 
-### Synthesis & Implementation
-- **Device:** xc7a35tcpg236‑1 (Basys 3)
-- **Synthesis warnings:** mainly unconnected XADC data bits (expected when scaling 16‑bit → 8‑bit)
-- **Implementation:** passes routing with minor clock‑region warnings; timing met for all critical paths
-- **WNS (example):** +1.904 ns (≥ 0)
+**Joseph Stiles** – waveform generator FSM, first versions of the median and mean modules, top-level integration and troubleshooting (2024/25).
 
-### Hardware Test
-The design was fully validated on a Basys 3 board:
-- Counter increments correctly; resets on BTNU press
-- Square, triangular and sawtooth waves generate correct 16‑byte sequences
-- Flush sequence appears when toggling the waveform switch
-- XADC reads a potentiometer (0‑1 V) and displays hexadecimal values
-- Buffer lengths 2, 4, 8 work interchangeably; inactive slots are ignored
-- Mean, Median, Mode, Range outputs are mathematically correct
-- LED indicators show active filter and buffer size
-
----
-
-## 🚀 How to Use
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ryan7302/Rolling-Arithmatic-Filter.git
-    ```
-2. **Open Vivado 2024.1 (or later) and launch the project file:**
-   ```bash
-    T05_M3_Project_VFinal.xpr
-    ```
-3. **Validate the IP cores** – both `clk_wiz_0` and `xadc_wiz_0` should regenerate automatically. If prompted, upgrade IP to the current version.
-
-4. **Run synthesis, implementation, and generate bitstream.**
-
-5. **Program the Basys 3 board** via the Hardware Manager.
-
-6. **Operate the system:**
-   - Press **Start** (U17) to begin waveform generation.
-   - Use **SW15** (R2) to switch between square‑wave and triangular/sawtooth families.
-   - Use **SW14** (T1) to switch between waveform data and XADC analogue readings.
-   - Use **SW1 & SW2** to set buffer length (00 = OFF, 01 = 2, 10 = 4, 11 = 8).
-   - Use **SW9 & SW10** to select the filter (00 = Mean, 01 = Median, 10 = Mode, 11 = Range).
-   - Press **Reset** (T18) to return to initial state at any time.
-
----
-
-## 🤝 Team & Credits
-
-**Paing Htet Kyaw** – Buffer‑filter engine, XADC integration, start‑flush synchronisation, mode/range filters, simulation & hardware test.
-
-**Joseph** – Finite state machine design for wave generator, initial median/mean modules, top‑level integration and troubleshooting.
-
-Supervised by **University of Portsmouth**, module **ENG631 – VHDL & FPGA Systems**.
-
----
-
-<p align="center">
-  <i>Built by <a href="https://github.com/ryan7302">Paing Htet Kyaw</a> &amp; Joseph Stiles<br>
-  University of Portsmouth – ENG631 VHDL &amp; FPGA Systems</i>
-</p>
-
-
+University of Portsmouth, ENG631 – VHDL & FPGA Systems.

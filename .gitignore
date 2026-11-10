@@ -1,0 +1,16 @@
+# Vivado build output - regenerated from the sources by Vivado
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+.Xil/
+
+# Incremental-compile checkpoint (not used)
+*.srcs/utils_1/
+
+# Vivado logs and journals
+*.jou
+*.log
+*.str
