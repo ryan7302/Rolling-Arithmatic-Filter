@@ -184,8 +184,10 @@ begin
                   i_Reset => i_Reset,
                   o_ClkEn250Hz => ClkEn250Hz);
                      
+    -- Nov 2026: WaveGenerator now runs on r_SystemClock like every other module.
+    -- It used the raw board clock before, creating a second clock domain.
     WaveGenerator: entity work.T05_M3_WaveGenerator (Behavioral)
-        port map ( i_Clk => i_Clk,
+        port map ( i_Clk => r_SystemClock,
                    i_Reset => i_Reset,
                    i_CE1Hz => i_CE1Hz,
                    i_Start => i_Start,

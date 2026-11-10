@@ -2,7 +2,9 @@
 # Clock signal
 set_property -dict { PACKAGE_PIN W5   IOSTANDARD LVCMOS33 } [get_ports i_Clk]
 # defining clock signal, period is in ns: name must be different from port, waveform 50:50 duty cycle and assign to same entity port
-create_clock -add -period 10.000 -name C100MHz_pin -waveform {0.000 5.000} [get_ports i_Clk]
+# Nov 2026: removed - the clocking wizard IP (clk_wiz_0) already constrains its 100 MHz input.
+# Defining it here too with -add created a duplicate clock (methodology TIMING-4/27).
+# create_clock -add -period 10.000 -name C100MHz_pin -waveform {0.000 5.000} [get_ports i_Clk]
 
 # Buttons
 set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports i_Reset]
